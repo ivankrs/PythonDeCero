@@ -35,7 +35,7 @@ print(type(True))
 No hace falta declarar variables, solo inicializarlas.
 El condicional 'if' no usa corchetes, se usan los ':'.
 '''
-temperatura = 40
+temperatura = 20
 
 if temperatura > 35 :
     print("Aviso por alta temperatura")
@@ -58,3 +58,21 @@ elif temperatura < 10 :
     
 else:
     print("Parámetros normales")
+    
+'''
+Se puede asignar valores de forma condicional. (1)
+Y se puede hacer lo mismo en una linea. (2)
+'''
+# 1
+if temperatura > 35 :
+    riesgo_Fuego = 'Alto'
+    
+else:
+    riesgo_Fuego = 'Bajo'
+
+# 2
+riesgo_Fuego = 'Bajo' if temperatura < 35 else 'Alto'
+
+print("El riesgo de fuego es: ")
+print(riesgo_Fuego)
+
