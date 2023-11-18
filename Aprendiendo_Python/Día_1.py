@@ -38,35 +38,28 @@ El condicional 'if' no usa corchetes, se usan los ':'.
 temperatura = 20
 
 if temperatura > 35 :
-    print("Aviso por alta temperatura")
-    
-else:
-    
+    print("Aviso por alta temperatura")   
+else:  
     if temperatura < 10 :
-        print("Aviso por baja temperatura")
-        
+        print("Aviso por baja temperatura")   
     else:
         print("Parámetros normales")
 
-# Se puede acortar el codigo usando 'elif' en vez de un 'if' despues de un 'else'
+# Se puede acortar el codigo usando 'elif' = 'if' despues de un 'else'
 
 if temperatura > 35 :
-    print("Aviso por alta temperatura")
-    
+    print("Aviso por alta temperatura")   
 elif temperatura < 10 :
-    print("Aviso por baja temperatura")
-    
+    print("Aviso por baja temperatura")  
 else:
     print("Parámetros normales")
-    
 '''
 Se puede asignar valores de forma condicional. (1)
 Y se puede hacer lo mismo en una linea. (2)
 '''
 # 1
 if temperatura > 35 :
-    riesgo_Fuego = 'Alto'
-    
+    riesgo_Fuego = 'Alto'    
 else:
     riesgo_Fuego = 'Bajo'
 
@@ -75,4 +68,3 @@ riesgo_Fuego = 'Bajo' if temperatura < 35 else 'Alto'
 
 print("El riesgo de fuego es: ")
 print(riesgo_Fuego)
-
