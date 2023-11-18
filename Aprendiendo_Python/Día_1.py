@@ -4,7 +4,7 @@
 # El '#' se usa para comentarios de una linea
 
 """
-Con comillas se puede hacer comentarios, si no esta sujeto a alguna variable o print.
+Con comillas se puede hacer comentarios.
 Se puede usar para comentarios de n lineas.
 """
 '''
@@ -19,10 +19,42 @@ print('Hola python')
 
 # La funcion 'type()' me dice el tipo de dato.
 
-print(type("Hola python"))   # tipo 'str' string.
+# tipo 'str' string.
+print(type("Hola python"))
 
-print(type(5))   # tipo 'int' número entero.
+# tipo 'int' número entero.
+print(type(5))
 
-print(type(1.2))   # tipo 'float' número flotante.
+# tipo 'float' número flotante.
+print(type(1.2))
 
-print(type(True))   # tipo 'bool' True o False.
+# tipo 'bool' True o False.
+print(type(True))
+
+'''
+No hace falta declarar variables, solo inicializarlas.
+El condicional 'if' no usa corchetes, se usan los ':'.
+'''
+temperatura = 40
+
+if temperatura > 35 :
+    print("Aviso por alta temperatura")
+    
+else:
+    
+    if temperatura < 10 :
+        print("Aviso por baja temperatura")
+        
+    else:
+        print("Parámetros normales")
+
+# Se puede acortar el codigo usando 'elif' en vez de un 'if' despues de un 'else'
+
+if temperatura > 35 :
+    print("Aviso por alta temperatura")
+    
+elif temperatura < 10 :
+    print("Aviso por baja temperatura")
+    
+else:
+    print("Parámetros normales")
