@@ -68,3 +68,13 @@ riesgo_Fuego = 'Bajo' if temperatura < 35 else 'Alto'
 
 print("El riesgo de fuego es: ")
 print(riesgo_Fuego)
+
+'''
+El salto de linea dentro de un print se hace con '\n'
+si o si debe estar dentro de las comillas.
+
+Se puede poner ('\n'*2)--> agregariamos 2 espacios extras
+'''
+print('\n'*2)
+print("El riesgo de fuego es: ")
+print(riesgo_Fuego)
