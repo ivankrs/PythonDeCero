@@ -127,14 +127,18 @@ Mostrar en pantalla el carácter del texto ubicado en la posición dada por indi
 
 frase = input("Ingrese texto: ")
 print("La primera letra del texto es:", frase[0])
-
-i = int(input("Ingrese indice: "))
-
-print(len(frase))
+print("Ingrese un número positivo menor a:", len(frase))
+i = int(input())
 print("La letra del texto en funcion al indice es:", frase[i])
 print(frase)
 '''
 '''
 10.
-
+Escribí un programa que solicite al usuario que ingrese cuántos shows musicales ha visto en el último año
+y almacene ese número en una variable.
+A continuación mostrar en pantalla un valor de verdad (True o False) que indique si el usuario 
+ha visto más de 3 shows.
 '''
+# comparar en un 'print()' te devuelve booleano
+shows = int(input("Cantidad de shows vistos: "))
+print(shows > 3)
