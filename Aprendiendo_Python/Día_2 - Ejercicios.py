@@ -139,6 +139,6 @@ y almacene ese número en una variable.
 A continuación mostrar en pantalla un valor de verdad (True o False) que indique si el usuario 
 ha visto más de 3 shows.
 '''
-# comparar en un 'print()' te devuelve booleano
+
 shows = int(input("Cantidad de shows vistos: "))
 print(shows > 3)
