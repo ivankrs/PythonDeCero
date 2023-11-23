@@ -2,7 +2,9 @@ import random
 import time
 
 def display_intro():
-    print("Estas en una tierra llena de dragones. Frente a ti, se pueden ver dos cuevas. En una, se encuentra un dragon amigable que compartira su tesoro contigo. Y, en la otra, un dragon codisioso y hambriento, que te comera al verte.")
+    print("Estas en una tierra llena de dragones. Frente a ti, se pueden ver dos cuevas...")
+    time.sleep(2)
+    print("En una, se encuentra un dragon amigable que compartira su tesoro contigo. Y, en la otra, un dragon codisioso y hambriento, que te comera al verte.")
     print()
     
 def choose_cave():
