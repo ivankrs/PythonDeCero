@@ -78,3 +78,12 @@ Se puede poner ('\n'*2)--> agregariamos 2 espacios extras
 print('\n'*2)
 print("El riesgo de fuego es: ")
 print(riesgo_Fuego)
+
+
+'''
+import os
+
+borrarPantalla = lambda: os.system ("cls")
+
+borrarPantalla() #Limpia la pantalla
+'''

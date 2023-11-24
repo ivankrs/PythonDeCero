@@ -1,5 +1,29 @@
 import random
 import time
+import os
+DECORATIO_PICS = ['''
+
+░░░░░░░░░░░░▄▄░░░░░░░░░░░░░░
+░░░░░░░░░░░█░░█░░░░░░░░░░░░░
+░░░░░░░░░░░█░░█░░░░░░░░░░░░░
+░░░░░░░░░░█░░░█░░░░░░░░░░░░░
+░░░░░░░░░█░░░░█░░░░░░░░░░░░░
+██████▄▄█░░░░░██████▄░░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█░░░░░░░░░░░░░░█░░░░░░
+▓▓▓▓▓▓█████░░░░░░░░░██░░░░░░
+█████▀░░░░▀▀████████░░░░░░░░
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+╔════╗░░╔════╗╔═══╗░░░░░░░░░
+║████║░░║████║║███╠═══╦═════╗
+╚╗██╔╝░░╚╗██╔╩╣██╠╝███║█████║
+░║██║░░░░║██║╔╝██║███╔╣██══╦╝
+░║██║╔══╗║██║║██████═╣║████║
+╔╝██╚╝██╠╝██╚╬═██║███╚╣██══╩╗
+║███████║████║████║███║█████ ''']
 HANGMAN_PICS = ['''
                 +---+
                     ¦
@@ -65,26 +89,32 @@ def obtener_palabra_aleatoria(lista_palabras):
 def display(palabra_secreta, letras_adivinadas):
     espacios = ''*len(palabra_secreta)
     for i in range(len(palabra_secreta)):
-        #for letra in palabra_secreta:
+            if palabra_secreta[i]==' ':
+                palabra_secreta = palabra_secreta.replace(" ", "-")
+                letras_adivinadas += '-'
+    
+    for i in range(len(palabra_secreta)):            
         if palabra_secreta[i] in letras_adivinadas:
-                espacios = espacios[:i] + palabra_secreta[i].upper() + espacios[i+1:]
+            espacios = espacios[:i] + palabra_secreta[i].upper() + espacios[i+1:]
         else:
             espacios += '_'
     print(end = '')
     for letra in espacios:
         print(letra, end = ' ')
+  
 
 def play_again():
     return input("¿Quieres volver a jugar? (si o no): ").lower().startswith('s')
 
-
-palabra = obtener_palabra_aleatoria(lista_de_palabras)
-palabra = replace_vocals(palabra)    
+############################################# 
+palabra_con_tilde = obtener_palabra_aleatoria(lista_de_palabras).upper()#lista_de_palabras[42].upper()
+palabra = replace_vocals(palabra_con_tilde).lower()
 letras_erradas = ''
 letras_correctas = ''
 letras_intentadas = ''
 fin_del_juego = False
-print(palabra)
+borrarPantalla = lambda: os.system ("cls")
+##############################################
 
 
 while True:
@@ -113,32 +143,52 @@ while True:
         letras_correctas += intento
         letras_intentadas = letras_erradas + letras_correctas
         
+        for i in range(len(palabra)):
+            if palabra[i]==' ':
+                palabra = palabra.replace(" ", "-")
+                letras_correctas += '-'
         if set(letras_correctas) == set(palabra.lower()):
-            print('\n'*1)
-            display(palabra, letras_correctas)
-            print('\n'*1)
+            borrarPantalla()
+            print("--------------------------\n")
+            print(palabra_con_tilde)
+            print("\n--------------------------\n")
             time.sleep(2)
             print("¡Felizidades, has ganado!")
+            input("\nPresiona ENTER para continuar\n")
             print()
             fin_del_juego = True  
     else:
         letras_erradas += intento
-                    
+    borrarPantalla() #Limpia la pantalla
     if len(letras_erradas) == len(HANGMAN_PICS):
-        print("Se han acabado los intentos...\nLa palabra era '" + palabra + "'.")
+        palabra = replace_vocals(palabra)
+        time.sleep(1)
+        print("Se han acabado los intentos...\n\nLa palabra era '" + palabra_con_tilde + "'.")
+        input("\nPresiona ENTER para continuar\n")
+        borrarPantalla()
         fin_del_juego = True
         
     print()
     
     if fin_del_juego:
+        time.sleep(1)
         if play_again():
-            palabra = obtener_palabra_aleatoria(lista_de_palabras)
-            palabra = replace_vocals(palabra)
+            palabra_con_tilde = obtener_palabra_aleatoria(lista_de_palabras).upper()
+            palabra = replace_vocals(palabra_con_tilde).lower()
             letras_erradas = ''
             letras_correctas = ''
             letras_intentadas = ''
             fin_del_juego = False
             print('\n'*3)
         else:
-            print("\nGracias por jugar\n")
+            
+            print("\nGracias por jugar")
+            time.sleep(2)
+            borrarPantalla()
+            print(DECORATIO_PICS[0])
             break
+        
+        
+        
+        
+        
