@@ -1,3 +1,4 @@
+
 import random
 import time
 import os
@@ -59,6 +60,16 @@ HANGMAN_PICS = ['''
                 O   ¦
                /¦\  ¦
                / \  ¦
+                   ===''','''
+                +---+
+               *O*  ¦
+               /¦\  ¦
+               / \  ¦
+                   ===''','''
+                +---+
+               *O*  ¦
+               /¦\  ¦
+              _/ \_ ¦
                    ===''']
 
 lista_de_animales = ['Aguila', 'Avestruz', 'Ballena', 'Bisonte', 'Bufalo', 'Buho', 'Buitre', 'Burro', 'Caballo',
@@ -100,23 +111,41 @@ def obtener_palabra_aleatoria(lista_palabras):
     palabra_aleatoria = random.choice(lista_palabras)
     return palabra_aleatoria
 
-def obtener_letra(letras_intentadas,letras_erradas):
+def obtener_letra(letras_adivinadas,letras_erradas,palabra_secreta,lista):
+    letras_intentadas = letras_adivinadas + letras_erradas
+            
     while len(HANGMAN_PICS)>len(letras_erradas):
         letra = input("->Ingrese una letra.\n--->").lower()
+        
         if len(letra) != 1:
-                print("\n>>Por favor igrese solo 'una' letra.")
-        elif letra in letras_intentadas:
-            print("\n>>Ya habias elejido esa letra. Elija de nuevo.")
-        elif letra not in "abcdefghijklmnñopqrstuvwxyz":
-            print("\n>>Por favor ingrese una LETRA.")
-        else:
-            break
+            borrarPantalla()
+            display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
+            time.sleep(1)
+            print("\n>>Por favor igrese solo 'una' letra.\n")
+            time.sleep(1)
             
-    return letra  
+        elif letra in letras_intentadas:
+            borrarPantalla()
+            display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
+            time.sleep(1)
+            print("\n>>Ya habias elejido esa letra. Elija de nuevo.\n")
+            time.sleep(1)
+            
+        elif letra not in "abcdefghijklmnñopqrstuvwxyz":
+            borrarPantalla()
+            display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
+            time.sleep(1)
+            print("\n>>Por favor ingrese una LETRA.\n")
+            time.sleep(1)
+        else:
+            return letra
+            
+            
+      
 
-def display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS, lista):
-    
+def display(palabra_secreta, letras_adivinadas,letras_erradas, HANGMAN_PICS, lista):
     espacios = ''*len(palabra_secreta)
+    letras_intentadas = letras_adivinadas + letras_erradas
     
     print("\tE L    A H O R C A D O\n" + HANGMAN_PICS[len(letras_erradas)])
       
@@ -148,8 +177,8 @@ def display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS, li
     for letra in espacios:
         print(letra ,end = ' ')
         
-    print("\n\nLetras erradas: ", end = '')
-    for letra in letras_erradas:
+    print("\n\nLetras intentadas: ", end = '')
+    for letra in letras_intentadas:
         print(letra, end = '-')
     print()
   
@@ -176,9 +205,9 @@ def gano_el_juego(palabra, letras_correctas):
 def perdio_el_juego(letras_erradas, HANGMAN_PICS, palabra):
     if len(letras_erradas) == len(HANGMAN_PICS):
         borrarPantalla()
-        print("\n\nSe han acabado los intentos...")
+        print("\n\n>>Se han acabado los intentos...")
         time.sleep(1)
-        print("\n\nLa palabra era '" + palabra + "'.")
+        print("\n\n>La palabra era '" + palabra + "'.")
         input("\nPresiona ENTER para continuar\n")
         return True
     else:
@@ -200,15 +229,15 @@ fin_del_juego = False
 
 
 while True:
+    borrarPantalla()
     display(palabra, letras_correctas, letras_erradas,HANGMAN_PICS, lista)
     
     print()
         
-    intento = obtener_letra(letras_intentadas, letras_erradas)
+    intento = obtener_letra(letras_correctas, letras_erradas,palabra,lista)
     
     if intento in palabra:
         letras_correctas += intento
-        letras_intentadas = letras_erradas + letras_correctas
         
         fin_del_juego = gano_el_juego(palabra_con_tilde, letras_correctas)  
     else:
@@ -216,6 +245,7 @@ while True:
         
         fin_del_juego = perdio_el_juego(letras_erradas,HANGMAN_PICS,palabra_con_tilde)
         
+    #letras_intentadas = letras_erradas + letras_correctas    
     borrarPantalla()
     print()
     
