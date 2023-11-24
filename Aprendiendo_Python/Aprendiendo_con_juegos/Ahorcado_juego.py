@@ -1,6 +1,4 @@
-import random
-import time
-import os
+import random, time, os, sys
 DECORATIO_PICS = ['''
 
 ░░░░░░░░░░░░▄▄░░░░░░░░░░░░░░
@@ -61,12 +59,12 @@ HANGMAN_PICS = ['''
                / \  ¦
                    ===''','''
                 +---+
-               *O*  ¦
+               •O•  ¦
                /¦\  ¦
                / \  ¦
                    ===''','''
                 +---+
-               *O*  ¦
+               •O•  ¦
                /¦\  ¦
               _/ \_ ¦
                    ===''']
@@ -114,27 +112,27 @@ def obtener_letra(letras_adivinadas,letras_erradas,palabra_secreta,lista):
     letras_intentadas = letras_adivinadas + letras_erradas
             
     while len(HANGMAN_PICS)>len(letras_erradas):
-        letra = input("->Ingrese una letra.\n--->").lower()
+        letra = input("• Ingrese una letra:")
         
         if len(letra) != 1:
             borrarPantalla()
             display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
             time.sleep(1)
-            print("\n>>Por favor igrese solo 'una' letra.\n")
+            print("\n♣ Por favor igrese solo 'UNA' letra.\n")
             time.sleep(1)
             
         elif letra in letras_intentadas:
             borrarPantalla()
             display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
             time.sleep(1)
-            print("\n>>Ya habias elejido esa letra. Elija de nuevo.\n")
+            print("\n♣ Ya habias elejido esa letra. Elija de nuevo.\n")
             time.sleep(1)
             
         elif letra not in "abcdefghijklmnñopqrstuvwxyz":
             borrarPantalla()
             display(palabra_secreta, letras_adivinadas, letras_erradas, HANGMAN_PICS,lista)
             time.sleep(1)
-            print("\n>>Por favor ingrese una LETRA.\n")
+            print("\n♣ Por favor ingrese una 'LETRA'.\n")
             time.sleep(1)
         else:
             return letra
@@ -146,7 +144,7 @@ def display(palabra_secreta, letras_adivinadas,letras_erradas, HANGMAN_PICS, lis
     espacios = ''*len(palabra_secreta)
     letras_intentadas = letras_adivinadas + letras_erradas
     
-    print("\tE L    A H O R C A D O\n" + HANGMAN_PICS[len(letras_erradas)])
+    print("\t•E L  ♦  A H O R C A D O•\n" + HANGMAN_PICS[len(letras_erradas)])
       
     if lista == lista_de_animales:
         tipo = 'Animal'
@@ -160,9 +158,9 @@ def display(palabra_secreta, letras_adivinadas,letras_erradas, HANGMAN_PICS, lis
         tipo = 'Figura geometrica'
     
     if ' ' in palabra:
-        print("\t\t>",tipo,"de:" ,str(len(palabra)-1), "letras.\n")
+        print("\t\t♦",tipo,"de:" ,str(len(palabra)-1), "letras.\n")
     else:
-        print("\t\t>",tipo,"de:" ,str(len(palabra)), "letras.\n")
+        print("\t\t♦",tipo,"de:" ,str(len(palabra)), "letras.\n")
 
     for i in range(len(palabra_secreta)):
         if ' ' in palabra_secreta:
@@ -176,7 +174,7 @@ def display(palabra_secreta, letras_adivinadas,letras_erradas, HANGMAN_PICS, lis
     for letra in espacios:
         print(letra ,end = ' ')
         
-    print("\n\nLetras intentadas: ", end = '')
+    print("\n\n•Letras intentadas: ", end = '')
     for letra in letras_intentadas:
         print(letra, end = '-')
     print()
@@ -204,16 +202,16 @@ def gano_el_juego(palabra, letras_correctas):
 def perdio_el_juego(letras_erradas, HANGMAN_PICS, palabra):
     if len(letras_erradas) == len(HANGMAN_PICS):
         borrarPantalla()
-        print("\n\n>>Se han acabado los intentos...")
+        print("\n\n• Se han acabado los intentos...")
         time.sleep(1)
-        print("\n\n>La palabra era '" + palabra + "'.")
+        print("\n\n• La palabra era '" + palabra + "'.")
         input("\nPresiona ENTER para continuar\n")
         return True
     else:
         return False
     
 def play_again():
-    return input("¿Quieres volver a jugar? (si o no): ").lower().startswith('s')
+    return input("•¿Quieres volver a jugar? (si o no): ").lower().startswith('s')
 
 #############################################
 lista = obtener_lista_aleatoria(directorio_de_listas) 
@@ -264,7 +262,7 @@ while True:
         else:
             borrarPantalla()
             print("\nGracias por jugar")
-            time.sleep(2)
+            time.sleep(1)
             borrarPantalla()
             print(DECORATIO_PICS[0])
             break
