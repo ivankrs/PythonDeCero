@@ -286,14 +286,7 @@ boton_letra_e.place(x = 680, y = 450)
 
 
 
-
-
-
-
-
-
-
-caja_de_pruebas = ttk.Label(text = "img_ahorcado")
+caja_de_pruebas = tk.Label(text = "img_ahorcado")
 caja_de_pruebas.place(x = 100, y = 40)
 
 
