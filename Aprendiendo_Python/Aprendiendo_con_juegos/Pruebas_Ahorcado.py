@@ -1,8 +1,9 @@
 import tkinter as tk
-from tkinter import ttk, messagebox, font
+from tkinter import ttk, messagebox, Label
 
 def boton_a_presionado():
-    messagebox.showinfo(message= "Pruebas:   A", title= "Letra")
+    'messagebox.showinfo(message= "Pruebas:   A", title= "Letra")'
+    display_palabra.
     
 def boton_b_presionado():
     messagebox.showinfo(message= "Pruebas:   B", title= "Letra")
@@ -172,122 +173,133 @@ root = tk.Tk()
 root.title("♦ El Ahorcado ♦")
 root.config(width= 800, height= 500)
 
+caja_de_pruebas = tk.Label(text = "♦ El  Ahorcado ♦", font = ("Times",25))
+caja_de_pruebas.place(x = 305, y = 40)
 
-boton_letra_a = ttk.Button(text = "A", command = boton_a_presionado)
+
+palabra = '_ _ _ _ _ _'
+display_palabra = tk.Label(text = palabra, font = ("Arial",25))
+display_palabra.place(x = 130, y = 300)
+
+display_tipo = tk.Label(text = "♦Un animal de 7 letras", font = ("Arial",15))
+display_tipo.place(x = 40, y = 180)
+
+
+
+boton_letra_a = tk.Button(text = "A",font=("Arial", 18) , command = boton_a_presionado)
 boton_letra_a.bind("a", boton_a)
-boton_letra_a.place(x = 40, y = 390)
+boton_letra_a.place(x = 45, y = 390, height=25 , width= 60)
 
-boton_letra_b = ttk.Button(text = "B", command = boton_b_presionado)
+boton_letra_b = tk.Button(text = "B", font=("Arial", 18) ,command = boton_b_presionado)
 boton_letra_b.bind("b", boton_b)
-boton_letra_b.place(x = 120, y = 390)
+boton_letra_b.place(x = 125, y = 390, height=25 , width= 60)
 
-boton_letra_c = ttk.Button(text = "C", command = boton_c_presionado)
+boton_letra_c = tk.Button(text = "C", font=("Arial", 18) ,command = boton_c_presionado)
 boton_letra_c.bind("c", boton_c)
-boton_letra_c.place(x = 200, y = 390)
+boton_letra_c.place(x = 205, y = 390, height=25 , width= 60)
 
-boton_letra_d = ttk.Button(text = "D", command = boton_d_presionado)
+boton_letra_d = tk.Button(text = "D", font=("Arial", 18) ,command = boton_d_presionado)
 boton_letra_d.bind("d", boton_d)
-boton_letra_d.place(x = 280, y = 390)
+boton_letra_d.place(x = 285, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "E", command = boton_e_presionado)
+boton_letra_e = tk.Button(text = "E", font=("Arial", 18) ,command = boton_e_presionado)
 boton_letra_e.bind("e", boton_e)
-boton_letra_e.place(x = 360, y = 390)
+boton_letra_e.place(x = 365, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "F", command = boton_f_presionado)
+boton_letra_e = tk.Button(text = "F", font=("Arial", 18) ,command = boton_f_presionado)
 boton_letra_e.bind("f", boton_f)
-boton_letra_e.place(x = 440, y = 390)
+boton_letra_e.place(x = 445, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "G", command = boton_g_presionado)
+boton_letra_e = tk.Button(text = "G", font=("Arial", 18) ,command = boton_g_presionado)
 boton_letra_e.bind("g", boton_g)
-boton_letra_e.place(x = 520, y = 390)
+boton_letra_e.place(x = 525, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "H", command = boton_h_presionado)
+boton_letra_e = tk.Button(text = "H", font=("Arial", 18) ,command = boton_h_presionado)
 boton_letra_e.bind("h", boton_h)
-boton_letra_e.place(x = 600, y = 390)
+boton_letra_e.place(x = 605, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "I", command = boton_i_presionado)
+boton_letra_e = tk.Button(text = "I", font=("Arial", 18) ,command = boton_i_presionado)
 boton_letra_e.bind("i", boton_i)
-boton_letra_e.place(x = 680, y = 390)
+boton_letra_e.place(x = 685, y = 390, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "J", command = boton_j_presionado)
+boton_letra_e = tk.Button(text = "J", font=("Arial", 18) ,command = boton_j_presionado)
 boton_letra_e.bind("j", boton_j)
-boton_letra_e.place(x = 40, y = 420)
+boton_letra_e.place(x = 45, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "K", command = boton_k_presionado)
+boton_letra_e = tk.Button(text = "K", font=("Arial", 18) ,command = boton_k_presionado)
 boton_letra_e.bind("k", boton_k)
-boton_letra_e.place(x = 120, y = 420)
+boton_letra_e.place(x = 125, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "L", command = boton_l_presionado)
+boton_letra_e = tk.Button(text = "L", font=("Arial", 18) ,command = boton_l_presionado)
 boton_letra_e.bind("l", boton_l)
-boton_letra_e.place(x = 200, y = 420)
+boton_letra_e.place(x = 205, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "M", command = boton_m_presionado)
+boton_letra_e = tk.Button(text = "M", font=("Arial", 18) ,command = boton_m_presionado)
 boton_letra_e.bind("m", boton_m)
-boton_letra_e.place(x = 280, y = 420)
+boton_letra_e.place(x = 285, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "N", command = boton_n_presionado)
+boton_letra_e = tk.Button(text = "N", font=("Arial", 18) ,command = boton_n_presionado)
 boton_letra_e.bind("n", boton_n)
-boton_letra_e.place(x = 360, y = 420)
+boton_letra_e.place(x = 365, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "Ñ", command = boton_ñ_presionado)
+boton_letra_e = tk.Button(text = "Ñ", font=("Arial", 18) ,command = boton_ñ_presionado)
 boton_letra_e.bind("ñ", boton_ñ)
-boton_letra_e.place(x = 440, y = 420)
+boton_letra_e.place(x = 445, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "O", command = boton_o_presionado)
+boton_letra_e = tk.Button(text = "O", font=("Arial", 18) ,command = boton_o_presionado)
 boton_letra_e.bind("o", boton_o)
-boton_letra_e.place(x = 520, y = 420)
+boton_letra_e.place(x = 525, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "P", command = boton_p_presionado)
+boton_letra_e = tk.Button(text = "P", font=("Arial", 18) ,command = boton_p_presionado)
 boton_letra_e.bind("p", boton_p)
-boton_letra_e.place(x = 600, y = 420)
+boton_letra_e.place(x = 605, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "Q", command = boton_q_presionado)
+boton_letra_e = tk.Button(text = "Q", font=("Arial", 18) ,command = boton_q_presionado)
 boton_letra_e.bind("q", boton_q)
-boton_letra_e.place(x = 680, y = 420)
+boton_letra_e.place(x = 685, y = 425, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "R", command = boton_r_presionado)
+boton_letra_e = tk.Button(text = "R", font=("Arial", 18) ,command = boton_r_presionado)
 boton_letra_e.bind("r", boton_t)
-boton_letra_e.place(x = 40, y = 450)
+boton_letra_e.place(x = 45, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "S", command = boton_s_presionado)
+boton_letra_e = tk.Button(text = "S", font=("Arial", 18) ,command = boton_s_presionado)
 boton_letra_e.bind("s", boton_s)
-boton_letra_e.place(x = 120, y = 450)
+boton_letra_e.place(x = 125, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "T", command = boton_t_presionado)
+boton_letra_e = tk.Button(text = "T", font=("Arial", 18) ,command = boton_t_presionado)
 boton_letra_e.bind("t", boton_t)
-boton_letra_e.place(x = 200, y = 450)
+boton_letra_e.place(x = 205, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "U", command = boton_u_presionado)
+boton_letra_e = tk.Button(text = "U", font=("Arial", 18) ,command = boton_u_presionado)
 boton_letra_e.bind("u", boton_u)
-boton_letra_e.place(x = 280, y = 450)
+boton_letra_e.place(x = 285, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "V", command = boton_v_presionado)
+boton_letra_e = tk.Button(text = "V", font=("Arial", 18) ,command = boton_v_presionado)
 boton_letra_e.bind("v", boton_v)
-boton_letra_e.place(x = 360, y = 450)
+boton_letra_e.place(x = 365, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "W", command = boton_w_presionado)
+boton_letra_e = tk.Button(text = "W", font=("Arial", 18) ,command = boton_w_presionado)
 boton_letra_e.bind("w", boton_w)
-boton_letra_e.place(x = 440, y = 450)
+boton_letra_e.place(x = 445, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "X", command = boton_x_presionado)
+boton_letra_e = tk.Button(text = "X", font=("Arial", 18) ,command = boton_x_presionado)
 boton_letra_e.bind("x", boton_x)
-boton_letra_e.place(x = 520, y = 450)
+boton_letra_e.place(x = 525, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "Y", command = boton_y_presionado)
+boton_letra_e = tk.Button(text = "Y", font=("Arial", 18) ,command = boton_y_presionado)
 boton_letra_e.bind("y", boton_y)
-boton_letra_e.place(x = 600, y = 450)
+boton_letra_e.place(x = 605, y = 460, height=25 , width= 60)
 
-boton_letra_e = ttk.Button(text = "Z", command = boton_z_presionado)
+boton_letra_e = tk.Button(text = "Z", font=("Arial", 18) ,command = boton_z_presionado)
 boton_letra_e.bind("z", boton_z)
-boton_letra_e.place(x = 680, y = 450)
+boton_letra_e.place(x = 685, y = 460, height=25 , width= 60)
 
 
 
 
 
 
-caja_de_pruebas = tk.Label(text = "img_ahorcado")
-caja_de_pruebas.place(x = 100, y = 40)
+
 
 
 
